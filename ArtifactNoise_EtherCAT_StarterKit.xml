@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<EtherCATInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="EtherCATInfo.xsd" Version="1.6">
+	<Vendor>
+		<Id>#x00000A68</Id> 
+	  	<Name>ArtifactNoise.LLC</Name>  
+	    <ImageData16x14>424D06020000000000004600000038000000100000000E0000000100100003000000C0010000130B0000130B0000000000000000000000F80000E00700001F00000000000000FFFFFFFFFFFF0000000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFF0000000080BE80BE80BE80BE80BE80BE80BE80BE00000000FFFFFFFFFFFF0000000080BE80BE80BE80BE80BE000080BE80BE80BE80BE00000000FFFF0000000080BE80BE80BE80BE80BE80BE000080BE80BE80BE80BE80BE00000000000080BE80BE80BE80BE80BE80BE0000000080BE80BE80BE000080BE80BE0000000080BE80BE80BE80BE80BE00000000000080BE80BE000080BE000080BE000000000000000080BE80BE80BE000080BE000080BE80BE000080BE000000000000000080BE0000000080BE0000000080BE000080BE000080BE80BE80BE80BE0000000080BEC0BE000080BE000080BE80BE000080BE000080BE80BE80BE80BE0000000080BE80BE00000000000080BE80BE0000000080BE80BE80BE80BE80BE00000000000080BE80BE000080BE80BE80BE0000000080BE80BE80BE80BE00000000FFFF0000000080BE80BE80BE80BE80BE000080BE80BE80BE80BE00000000FFFFFFFFFFFF0000000080BE80BE80BE80BE80BE80BE80BE80BE00000000FFFFFFFFFFFFFFFFFFFF0000000000000000000000000000000000000000FFFFFFFFFFFF</ImageData16x14>
+	</Vendor> 
+  <Descriptions>
+
+    <Groups>
+      <Group SortOrder="0">
+        <Type>EtherCAT_System</Type>
+        <Name LcId="1033">Elpis</Name>
+	    <ImageData16x14>424D06020000000000004600000038000000100000000E0000000100100003000000C0010000130B0000130B0000000000000000000000F80000E00700001F00000000000000FFFFFFFFFFFF0000000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFF0000000080BE80BE80BE80BE80BE80BE80BE80BE00000000FFFFFFFFFFFF0000000080BE80BE80BE80BE80BE000080BE80BE80BE80BE00000000FFFF0000000080BE80BE80BE80BE80BE80BE000080BE80BE80BE80BE80BE00000000000080BE80BE80BE80BE80BE80BE0000000080BE80BE80BE000080BE80BE0000000080BE80BE80BE80BE80BE00000000000080BE80BE000080BE000080BE000000000000000080BE80BE80BE000080BE000080BE80BE000080BE000000000000000080BE0000000080BE0000000080BE000080BE000080BE80BE80BE80BE0000000080BEC0BE000080BE000080BE80BE000080BE000080BE80BE80BE80BE0000000080BE80BE00000000000080BE80BE0000000080BE80BE80BE80BE80BE00000000000080BE80BE000080BE80BE80BE0000000080BE80BE80BE80BE00000000FFFF0000000080BE80BE80BE80BE80BE000080BE80BE80BE80BE00000000FFFFFFFFFFFF0000000080BE80BE80BE80BE80BE80BE80BE80BE00000000FFFFFFFFFFFFFFFFFFFF0000000000000000000000000000000000000000FFFFFFFFFFFF</ImageData16x14>
+      </Group>
+    </Groups>
+
+    <Devices>
+      <Device Physics="YY">
+        <Type ProductCode="#x00000102" RevisionNo="#x01" CheckRevisionNo="EQ_OR_G">ArtifactNoise_EtherCAT_StarterKit</Type>
+        <Name LcId="1033"><![CDATA[ArtifactNoise_EtherCAT_StarterKit]]></Name>    
+        <GroupType>EtherCAT_System</GroupType>
+
+
+        <Fmmu>Outputs</Fmmu>
+        <Fmmu>Inputs</Fmmu>
+	    <!-- output base physical address -->
+        <Sm StartAddress="#x1000" ControlByte="#x64" Enable="1">Outputs</Sm>
+	    <!-- input base physical address -->
+        <Sm StartAddress="#x1200" ControlByte="#x20" Enable="1">Inputs</Sm>
+
+<!-- ***************** output PDO ********************************************************** -->
+
+        <RxPdo Fixed="1" Mandatory="1" Sm="0">
+          <Index>#x1600</Index>
+          <Name>Outputs</Name>
+          <Entry>
+            <Index>#x1</Index>
+            <SubIndex>#x1</SubIndex>
+            <BitLen>16</BitLen>
+            <Name>LED_Outputs</Name>
+            <DataType>UINT</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x2</Index>
+            <SubIndex>#x1</SubIndex>
+            <BitLen>1</BitLen>
+            <Name>BUZZER</Name>
+            <DataType>BOOL</DataType>
+          </Entry>
+        </RxPdo>
+<!-- ***************** input PDO ********************************************************** -->
+
+        <TxPdo Fixed="1" Mandatory="1" Sm="1">
+          <Index>#x1A00</Index>
+          <Name>Inputs</Name>
+          <Entry>
+            <Index>#x1</Index>
+            <SubIndex>#x1</SubIndex>
+            <BitLen>8</BitLen>
+            <Name>Push_SW</Name>
+            <DataType>USINT</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x2</Index>
+            <SubIndex>#x1</SubIndex>
+            <BitLen>8</BitLen>
+            <Name>Toggle_SW</Name>
+            <DataType>USINT</DataType>
+          </Entry>
+        </TxPdo>
+    
+<!-- *************************************************************************************** -->
+
+        <Eeprom>
+          <ByteSize>4096</ByteSize>                  
+          <ConfigData>8003006EFF00FF000000</ConfigData> 
+                                                 <!-- 0x140   0x80 PDI type LAN9252 Spi      -->  
+                                           
+                                                 <!-- 0x141   0x03 device emulation          -->
+                                                 <!--         enhanced link detection        -->  
+                                           
+                                                 <!-- 0x150   0x00 not used for LAN9252 Spi  -->
+                                           
+                                                 <!-- 0x151   0x6E map Sync0 to AL event     -->
+                                                 <!--         Sync0/Latch0 assigned to Sync0 -->
+                                                 <!--         Sync1/Latch1 assigned to Sync1 -->
+                                                 <!--         Sync0/1 push/pull active high  -->                                           
+                                                                                      
+                                                 <!-- 0x982-3 0x00FF Sync0/1 lenght = 2.5uS  -->         
+                                                       
+                                                 <!-- 0x152   0xFF all GPIO set to out       -->
+                                                 <!-- 0x153   0x00 reserved                  -->    
+                                           
+                                                 <!-- 0x12-13 0x0000 alias address           -->                                        
+        </Eeprom>    
+              <ImageData16x14>424D06020000000000004600000038000000100000000E0000000100100003000000C0010000130B0000130B0000000000000000000000F80000E00700001F00000000000000FFFFFFFFFFFF0000000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFF0000000080BE80BE80BE80BE80BE80BE80BE80BE00000000FFFFFFFFFFFF0000000080BE80BE80BE80BE80BE000080BE80BE80BE80BE00000000FFFF0000000080BE80BE80BE80BE80BE80BE000080BE80BE80BE80BE80BE00000000000080BE80BE80BE80BE80BE80BE0000000080BE80BE80BE000080BE80BE0000000080BE80BE80BE80BE80BE00000000000080BE80BE000080BE000080BE000000000000000080BE80BE80BE000080BE000080BE80BE000080BE000000000000000080BE0000000080BE0000000080BE000080BE000080BE80BE80BE80BE0000000080BEC0BE000080BE000080BE80BE000080BE000080BE80BE80BE80BE0000000080BE80BE00000000000080BE80BE0000000080BE80BE80BE80BE80BE00000000000080BE80BE000080BE80BE80BE0000000080BE80BE80BE80BE00000000FFFF0000000080BE80BE80BE80BE80BE000080BE80BE80BE80BE00000000FFFFFFFFFFFF0000000080BE80BE80BE80BE80BE80BE80BE80BE00000000FFFFFFFFFFFFFFFFFFFF0000000000000000000000000000000000000000FFFFFFFFFFFF
+</ImageData16x14>
+
+      </Device>          
+    </Devices>
+  </Descriptions>
+</EtherCATInfo>  
