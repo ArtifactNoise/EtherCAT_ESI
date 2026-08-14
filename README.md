@@ -1,42 +1,13 @@
-# EtherCAT_ESI
-   
-## OLD_ArtifactNoise_EtherCATBord_GPO16_3
+# EtherCAT ESI
 
-   NAME:ArtifactNoise-DIGIO
+## Device List
 
-   VendorID:0x0A68
+| Device Name                        | ESI Name                            | Vendor ID | Product Code | Revision No. | Repository                                        |
+| ---------------------------------- | ----------------------------------- | :-------: | :----------: | :----------: | ------------------------------------------------- |
+| ArtifactNoise LEDx16               | `ArtifactNoise_LEDx16`              |  `0x0A68` |   `0x0100`   |   `0x0001`   | [AN-225](https://github.com/ArtifactNoise/AN-225) |
+| ArtifactNoise EtherCAT Starter Kit | `ArtifactNoise_EtherCAT_StarterKit` |  `0x0A68` |   `0x0102`   |   `0x0001`   | [AN-229](https://github.com/ArtifactNoise/AN-229) |
+| ArtifactNoise EtherCATBord GPO16-3 | `ArtifactNoise-DIGIO`               |  `0x0A68` |   `0x0001`   |   `0x0001`   | [AN-225](https://github.com/ArtifactNoise/AN-225) |
 
-   ProductCode:0x0001
-   
-   RevisionNo:0x001
-
-※2026年よりArtifactNoise_LEDx16へ移行
-   ->  https://github.com/ArtifactNoise/AN-225
-
- ## ArtifactNoise_LEDx16
-
-   NAME:ArtifactNoise_LEDx16
-
-   VendorID:0x0A68
-
-   ProductCode:0x0100
-   
-   RevisionNo:0x001
-   
-   ->  https://github.com/ArtifactNoise/AN-225
-
-
-
- ## ArtifactNoise_EtherCAT_StarterKit
-
-   NAME:ArtifactNoise_EtherCAT_StarterKit
-   
-   VendorID:0x0A68
-
-   ProductCode:0x0102
-   
-   RevisionNo:0x001
-
-   
-   -> https://github.com/ArtifactNoise/AN-229
-   
+> **Migration notice**
+> `ArtifactNoise-DIGIO` is a legacy device.
+> Since 2026, it has been replaced by `ArtifactNoise_LEDx16`.
